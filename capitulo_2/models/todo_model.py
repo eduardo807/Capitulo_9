@@ -7,7 +7,8 @@ from odoo import models, fields, api
 # ~ Es una clase derivada de models.Model
 class TodoTask(models.Model):
     _name = 'todo.task'  # definiendo el identificador que será usado por Odoo para referirse a este modelo
-    
+    _inherit = 'mail.thread' # hereda el modulo mail.thread (utilizado a partir del capitulo 3)
+
      # ~ los campos del modelo. Vale la pena señalar que name y active son nombres de campos especiales
     name = fields.Char(string= 'Description', required=True)
     is_done = fields.Boolean(string= 'Done?')
