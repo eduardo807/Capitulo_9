@@ -5,5 +5,6 @@
    'description': 'User friendly features.',
    'author': 'Eduardo Morillo',
    'depends': ['todo_user'],
+   'data': ['view/todo_view.xml']
 
 }
