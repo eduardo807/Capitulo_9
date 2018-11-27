@@ -54,7 +54,6 @@ class TodoTask(models.Model):
     tag_ids = fields.Many2many('todo.task.tag', string='Tags') #Campo relacional many2many
     refers_to = fields.Reference([('res.user', 'User'),('res.partner', 'Partner')], string='Refers to')
     user_todo_count= fields.Integer(string='User To-Do   Count', compute='compute_user_todo_count')
-    effort_estimate = fields.Integer('Effort Estimate')
     stage_fold = fields.Boolean(
         string   = 'Stage Folded?',
         compute  ='_compute_stage_fold',
@@ -82,10 +81,6 @@ class TodoTask(models.Model):
         if len(self.name) < 5:
             raise ValidationError('Must have 5 chars!')
     # ~ El ejemplo anterior previene que el título de las tareas sean almacenados con menos de 5 caracteres
-            
-    @api.one 
-    def compute_user_todo_count(self):
-        self.user_todo_count = self.search_count([('user_id', '=', self.user_id.id)])
         
     _sql_constraints = [
         ('todo_task_name_uniq',
