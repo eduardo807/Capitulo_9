@@ -15,6 +15,7 @@
              "security/ir.model.access.csv",
              "security/todo_access_rules.xml"
              ],
-    # ~ appilcation, la colocamos en True para indicar que nuestro modulo es una aplicacion
+             
+    # ~ appilcation, la colocamos en True para indicar que nuestro modulo es una aplicacion.
     'application': True,
 }
